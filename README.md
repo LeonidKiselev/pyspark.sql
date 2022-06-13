@@ -4,7 +4,7 @@
     !pip install pyspark
 #### Creating SparkSession
     from pyspark.sql import SparkSession
-    spark = SparkSession.builder.master('local').appName(`name`).getOrCreate()
+    spark = SparkSession.builder.master('local').appName(<name>).getOrCreate()
     spark
 #### Creating DataFrame
     data = <array of tuples>
