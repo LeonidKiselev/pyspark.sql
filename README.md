@@ -6,10 +6,14 @@
     from pyspark.sql import SparkSession
     spark = SparkSession.builder.master('local[*]').appName(<name>).getOrCreate()
     spark
-#### Creating DataFrame
-    data = <array of tuples>
-    schema = <array of strings>
-    df = spark.createDataFrame(data=data, schema=schema)
+#### Uploaing DataFrame
+    from pyspark.sql.types import *
+    schema = [
+        StructField(<name>, <type>, True),
+        StructField(<name>, <type>, True),
+        ...
+    ]
+    df = spark.read.csv('file.csv', schema=StructType(fields=schema))
     df.show()
 #### Preparing for SQL queries
     df.createOrReplaceTempView(<table name>)
